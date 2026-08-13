@@ -1,0 +1,4 @@
+include: _t_hellaswag_yaml
+task: t_hellaswag_id_ID
+dataset_kwargs:
+  locale: id-ID

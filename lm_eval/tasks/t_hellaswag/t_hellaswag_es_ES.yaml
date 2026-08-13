@@ -1,0 +1,4 @@
+include: _t_hellaswag_yaml
+task: t_hellaswag_es_ES
+dataset_kwargs:
+  locale: es-ES

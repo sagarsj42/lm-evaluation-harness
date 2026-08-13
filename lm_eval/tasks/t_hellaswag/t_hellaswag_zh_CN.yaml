@@ -1,0 +1,4 @@
+include: _t_hellaswag_yaml
+task: t_hellaswag_zh_CN
+dataset_kwargs:
+  locale: zh-CN

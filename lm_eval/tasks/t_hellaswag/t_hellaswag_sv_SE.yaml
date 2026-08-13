@@ -1,0 +1,4 @@
+include: _t_hellaswag_yaml
+task: t_hellaswag_sv_SE
+dataset_kwargs:
+  locale: sv-SE

@@ -1,0 +1,4 @@
+include: _t_hellaswag_yaml
+task: t_hellaswag_mr_IN
+dataset_kwargs:
+  locale: mr-IN

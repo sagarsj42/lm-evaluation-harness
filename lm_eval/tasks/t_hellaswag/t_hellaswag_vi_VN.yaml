@@ -1,0 +1,4 @@
+include: _t_hellaswag_yaml
+task: t_hellaswag_vi_VN
+dataset_kwargs:
+  locale: vi-VN

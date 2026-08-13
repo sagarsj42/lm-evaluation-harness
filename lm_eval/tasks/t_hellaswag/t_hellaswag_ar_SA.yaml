@@ -1,0 +1,4 @@
+include: _t_hellaswag_yaml
+task: t_hellaswag_ar_SA
+dataset_kwargs:
+  locale: ar-SA
