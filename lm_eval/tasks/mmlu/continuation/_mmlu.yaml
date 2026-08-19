@@ -7,11 +7,15 @@ task:
     aggregate_metric_list:
       - metric: acc
         weight_by_size: True
+      - metric: acc_norm
+        weight_by_size: True
   - group: other
     task:
       - mmlu_other_continuation
     aggregate_metric_list:
       - metric: acc
+        weight_by_size: True
+      - metric: acc_norm
         weight_by_size: True
   - group: social sciences
     task:
@@ -19,14 +23,20 @@ task:
     aggregate_metric_list:
       - metric: acc
         weight_by_size: True
+      - metric: acc_norm
+        weight_by_size: True
   - group: humanities
     task:
       - mmlu_humanities_continuation
     aggregate_metric_list:
       - metric: acc
         weight_by_size: True
+      - metric: acc_norm
+        weight_by_size: True
 aggregate_metric_list:
   - metric: acc
+    weight_by_size: True
+  - metric: acc_norm
     weight_by_size: True
 metadata:
   version: 2
