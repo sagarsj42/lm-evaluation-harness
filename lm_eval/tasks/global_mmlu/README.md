@@ -19,6 +19,8 @@ Homepage: \
 
 * `global_mmlu_{lang}`: This group uses `Global-MMLU-Lite` benchmark which supports 14 languages.
 * `global_mmlu_full_{lang}`: This group uses `Global-MMLU` benchmark which supports 42 languages.
+* `global_mmlu_full_{lang}_continuation`: continuation form of `global_mmlu_full_{lang}`, same
+  benchmark and same 42 languages.
 
 #### Subgroups (support only for `full` version)
 
@@ -26,6 +28,24 @@ Homepage: \
 * `global_mmlu_full_humanities`
 * `global_mmlu_full_social_sciences`
 * `global_mmlu_full_other`
+
+The `_continuation` groups carry the same four subgroups, each with the suffix appended: `global_mmlu_full_{lang}_stem_continuation`, and so on.
+
+### Continuation format
+
+The default tasks lay the four options out as a lettered list and score the letters, so the model only has to prefer one of `A`..`D`. A model that has not been tuned to answer in that form scores at chance no matter how much it knows, which makes the task useless for measuring a base model.
+
+The `_continuation` tasks hide the options and score each option text as a continuation of the question, so the comparison is between statements the model may or may not find likely:
+
+    Question: {question}
+    Answer:
+
+Because the four continuations now differ in length, raw `acc` favours the shortest one. Every task and group therefore reports `acc_norm` (dividing each loglikelihood by the option's length in characters) and `acc_bytes` (in UTF-8 bytes) alongside `acc`. All three read the same loglikelihoods, so nothing extra is computed. Prefer `acc_norm`; `acc_bytes` is the check that a result is not an artefact of how a script spends characters, and the two
+part company mainly on items that mix scripts.
+
+Regenerate the configs with:
+
+    python3 full_continuation/_generate_configs.py
 
 ### Citation
 
