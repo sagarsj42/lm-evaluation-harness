@@ -10,7 +10,7 @@ def doc_to_text(doc, connector):
     conn = connector[doc["question"]]
     premise = doc["premise"].strip()
     # Drop sentence-final punctuation, if any. Thai and Tamil premises carry none, so an
-    # unconditional strip would delete a letter (in Tamil, a vowel sign).
+    # unconditional strip would delete a non-punctuation character.
     if premise and unicodedata.category(premise[-1]).startswith("P"):
         premise = premise[:-1]
     return premise + f" {conn}"
