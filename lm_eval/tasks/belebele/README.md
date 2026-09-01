@@ -27,14 +27,21 @@ Homepage: https://github.com/facebookresearch/belebele
 #### Groups
 
 - `belebele`: All 122 languages of the Belebele dataset, evaluated following the methodology in MMLU's original implementation.
+- `belebele_continuation`: The same 122 languages in continuation format, scoring the four answer texts directly rather than the letters `A`-`D`, following `mmlu/continuation`. Intended for base models, which cannot reliably map an answer onto its letter.
 
 #### Tasks
 
 
-The following tasks evaluate languages in the Belebele dataset using loglikelihood-based multiple-choice scoring:
+The following tasks evaluate languages in the Belebele dataset using loglikelihood-based multiple-choice scoring, following the evaluation format convention of its respective group:
 - `belebele_{language}`
+- `belebele_{language}_continuation`
 
-The variant evaluated here is the 0-shot or few-shot evaluation with English Instructions.
+The variant evaluated here is the 0-shot or few-shot evaluation with English Instructions. For continuation format, `acc_bytes` and `acc_mutual_info` are reported alongside `acc` and `acc_norm`, since answer lengths vary widely across languages. `acc_mutual_info` subtracts each answer's unconditional log-likelihood, so it needs a `prefix_token_id` matching how the model was shown document starts in training, and it doubles the number of requests.
+
+The task variants are laid out as follows:
+
+- `default/` - letter-format configs: `_belebele.yaml`, `_default_template_yaml`, one leaf per language. `_generate_configs.py` writes here; run it from inside `default/`.
+- `continuation/` - continuation-format configs, generated from the language list in `default/`.
 
 ### Checklist
 
