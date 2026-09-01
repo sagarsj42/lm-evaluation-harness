@@ -45,6 +45,17 @@ Homepage: https://github.com/cambridgeltl/xcopa
 * `xcopa_vi`: Vietnamese
 * `xcopa_zh`: Mandarin Chinese
 
+### Implementation notes
+
+`doc_to_text` strips sentence-final punctuation from the premise before appending the
+connector. The strip is conditional: Thai premises and 499/500 Tamil premises end in a
+letter rather than a period, and an unconditional strip removed it (in Tamil, a vowel
+sign), so `xcopa_th` and `xcopa_ta` were scored on truncated context.
+
+`acc_norm` (length-normalised) and `acc_bytes` (byte-normalised) are reported alongside
+`acc`, since the two answer choices differ in length and non-Latin scripts have very
+different character-to-byte ratios.
+
 
 ### Checklist
 

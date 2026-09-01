@@ -9,5 +9,7 @@ doc_to_target: label
 doc_to_choice: !function utils.doc_to_choice
 metric_list:
   - metric: acc
+  - metric: acc_norm
+  - metric: acc_bytes
 metadata:
-  version: 1.0
+  version: 2.0

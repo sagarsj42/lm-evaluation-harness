@@ -1,3 +1,4 @@
+import unicodedata
 from functools import partial
 
 
@@ -6,9 +7,13 @@ def convert_choice(choice):
 
 
 def doc_to_text(doc, connector):
-    # Drop the period
     conn = connector[doc["question"]]
-    return doc["premise"].strip()[:-1] + f" {conn}"
+    premise = doc["premise"].strip()
+    # Drop sentence-final punctuation, if any. Thai and Tamil premises carry none, so an
+    # unconditional strip would delete a letter (in Tamil, a vowel sign).
+    if premise and unicodedata.category(premise[-1]).startswith("P"):
+        premise = premise[:-1]
+    return premise + f" {conn}"
 
 
 def doc_to_choice(doc):
