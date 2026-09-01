@@ -3,7 +3,7 @@
 ### Paper
 
 Choice of Plausible Alternatives: An Evaluation of Commonsense Causal Reasoning
-https://people.ict.usc.edu/~gordon/publications/AAAI-SPRING11A.PDF
+https://cdn.aaai.org/ocs/2418/2418-10878-1-PB.pdf
 
 Melissa Roemmele, Cosmin Adrian Bejan, Andrew S. Gordon. AAAI Spring Symposium on
 Logical Formalizations of Commonsense Reasoning, Stanford University, 2011.
