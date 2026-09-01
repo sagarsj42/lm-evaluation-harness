@@ -36,7 +36,7 @@ The following tasks evaluate languages in the Belebele dataset using loglikeliho
 - `belebele_{language}`
 - `belebele_{language}_continuation`
 
-The variant evaluated here is the 0-shot or few-shot evaluation with English Instructions. For continuation format, `acc_bytes` and `acc_mutual_info` are reported alongside `acc` and `acc_norm`, since answer lengths vary widely across languages. `acc_mutual_info` subtracts each answer's unconditional log-likelihood, so it needs a `prefix_token_id` matching how the model was shown document starts in training, and it doubles the number of requests.
+The variant evaluated here is the 0-shot or few-shot evaluation with English Instructions. For continuation format, `acc_bytes` is reported alongside `acc` and `acc_norm`, since answer lengths vary widely across languages.
 
 The task variants are laid out as follows:
 

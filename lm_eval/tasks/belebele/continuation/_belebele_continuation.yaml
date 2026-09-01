@@ -134,8 +134,5 @@ aggregate_metric_list:
   - metric: acc_bytes
     aggregation: mean
     weight_by_size: true
-  - metric: acc_mutual_info
-    aggregation: mean
-    weight_by_size: true
 metadata:
   version: 0.0

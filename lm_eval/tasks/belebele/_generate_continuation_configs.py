@@ -24,8 +24,6 @@ GROUP = OUT / "_belebele_continuation.yaml"
 TEMPLATE_NAME = "_continuation_template_yaml"
 
 # Only doc_to_text/doc_to_choice/metric_list differ from ../default/_default_template_yaml.
-# `acc_mutual_info` doubles the request count (it adds an unconditional pass per option)
-# and needs a `prefix_token_id` matching how the model saw document starts in training.
 # `fewshot_split: test` is carried over deliberately: Belebele ships a test split and
 # nothing else, and pointing fewshot_split at it is what makes lm-eval exclude the eval
 # doc from its own shots. The dataset is intended for 0-shot use here.
@@ -48,9 +46,6 @@ metric_list:
     aggregation: mean
     higher_is_better: true
   - metric: acc_bytes
-    aggregation: mean
-    higher_is_better: true
-  - metric: acc_mutual_info
     aggregation: mean
     higher_is_better: true
 metadata:
@@ -88,7 +83,7 @@ class IndentedDumper(yaml.SafeDumper):
 def group_yaml(names):
     aggregate = [
         {"metric": metric, "aggregation": "mean", "weight_by_size": True}
-        for metric in ("acc", "acc_norm", "acc_bytes", "acc_mutual_info")
+        for metric in ("acc", "acc_norm", "acc_bytes")
     ]
     body = yaml.dump(
         {

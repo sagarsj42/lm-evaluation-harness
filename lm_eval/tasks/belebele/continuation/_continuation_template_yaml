@@ -18,8 +18,5 @@ metric_list:
   - metric: acc_bytes
     aggregation: mean
     higher_is_better: true
-  - metric: acc_mutual_info
-    aggregation: mean
-    higher_is_better: true
 metadata:
   version: 0.0
